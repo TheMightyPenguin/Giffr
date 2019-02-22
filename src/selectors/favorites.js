@@ -4,7 +4,7 @@ export const getFavorites = ({ favorites }) => favorites;
 export const getFavorite = (id, { favorites }) => favorites[id];
 export const isFavorited = (id, { favorites }) => !!getFavorite(id, { favorites });
 
-export const getFavoritesArray = ({ favorites }) => Object.keys(favorites).map(key => favorites[key]);
+export const getFavoritesArray = ({ favorites }) => Object.values(favorites);
 
 export const getFilteredFavorites = (state) => {
   const favorites = getFavoritesArray(state);
