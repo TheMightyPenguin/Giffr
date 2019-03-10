@@ -1,34 +1,7 @@
 import React, { Component } from 'react';
-import { createPortal } from 'react-dom';
 import styled from 'styled-components';
 import { styleGetter } from './helpers';
-
-const mountingElement = document.body;
-
-export class Portal extends Component {
-  constructor(props) {
-    super(props);
-    this.modalDiv = document.createElement('div');
-    this.modalDiv.setAttribute('id', `modal-${Date.now().toString()}`);
-    this.modalDiv.setAttribute('class', `${props.className} ${props.open ? 'open' : ''}`);
-  }
-
-  componentDidMount() {
-    mountingElement.appendChild(this.modalDiv);
-  }
-
-  componentWillUnmount() {
-    mountingElement.removeChild(this.modalDiv);
-  }
-
-  render() {
-    const { open, children } = this.props;
-    return !open ? null : createPortal(
-      children,
-      this.modalDiv
-    );
-  }
-}
+import { Portal } from './Portal/Portal.component';
 
 const StyledPortal = styled(Portal)`
   position: absolute;
@@ -81,7 +54,12 @@ const StyledCloseIcon = styled.span`
   z-index: ${styleGetter('theme.zMap.modalContent')};
 `;
 
-const Modal = ({ children, open, onCloseClick }) => (
+interface ModalProps {
+  open: boolean;
+  onCloseClick(): void;
+}
+
+const Modal: React.FunctionComponent<ModalProps> = ({ children, open, onCloseClick }) => (
   <StyledPortal open={open}>
     <StyledBackdrop onClick={onCloseClick} />
     <StyledModalContainer>

@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import styled from 'styled-components';
 import { withRouter } from 'react-router-dom';
 import Gif from './Gif';
-import Modal from './Modal';
+import Modal from './Modal.tsx';
 import history from '../history';
 import { getSelectedGif } from '../selectors/selected';
 import { selectedGifRemove, selectedGifRequestInfo } from '../actions/selected';

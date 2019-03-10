@@ -6,7 +6,6 @@ export const saveFavorites = (favorites) => window.localStorage.setItem('favorit
 
 export const addToCache = async (imageUrls) => {
   const myCache = await window.caches.open('favorites-cache');
-  console.log('Adding to cache!');
   await myCache.addAll(imageUrls);
 };
 
