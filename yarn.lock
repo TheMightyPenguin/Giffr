@@ -969,6 +969,16 @@
   resolved "https://registry.yarnpkg.com/@types/tapable/-/tapable-1.0.2.tgz#e13182e1b69871a422d7863e11a4a6f5b814a4bd"
   integrity sha512-42zEJkBpNfMEAvWR5WlwtTH22oDzcMjFsL9gDGExwF8X8WvAiw7Vwop7hPw03QT8TKfec83LwbHj6SvpqM4ELQ==
 
+"@types/workbox-sw@^3.2.1":
+  version "3.2.1"
+  resolved "https://registry.yarnpkg.com/@types/workbox-sw/-/workbox-sw-3.2.1.tgz#73444f4fa00b4a4f23fad532630f03ce304c3c00"
+  integrity sha512-oP1zxJ3qTN89ZqFk9dQSiQmugGKcI2FSB9MdoshuyxVTwGiugZFqFJTXfA/Pa9Drn+IX/GEL+donk9ufjjGrTg==
+
+"@types/workbox-webpack-plugin@^3.6.1":
+  version "3.6.1"
+  resolved "https://registry.yarnpkg.com/@types/workbox-webpack-plugin/-/workbox-webpack-plugin-3.6.1.tgz#19d1964fc3f65d84fc9de3238f416942d47127f4"
+  integrity sha512-pC1jP7LVvCd/ffNKX4VFm0mdLoeLHP7uoz4C5F9OgiH41fBZT7i3ElFMnw1vXYaa3llHrHlPGlH97UA4NP7BxA==
+
 "@webassemblyjs/ast@1.7.6":
   version "1.7.6"
   resolved "https://registry.yarnpkg.com/@webassemblyjs/ast/-/ast-1.7.6.tgz#3ef8c45b3e5e943a153a05281317474fef63e21e"
@@ -9973,6 +9983,11 @@ typedarray@^0.0.6:
   version "0.0.6"
   resolved "https://registry.yarnpkg.com/typedarray/-/typedarray-0.0.6.tgz#867ac74e3864187b1d3d47d996a78ec5c8830777"
   integrity sha1-hnrHTjhkGHsdPUfZlqeOxciDB3c=
+
+types-serviceworker@^0.0.1:
+  version "0.0.1"
+  resolved "https://registry.yarnpkg.com/types-serviceworker/-/types-serviceworker-0.0.1.tgz#3d356e176d3b987d2164b34e609c591e67d31f1c"
+  integrity sha512-EKO/SZ3AsHEZsqv+bsdlTCz5k955riOksnYGlG6JhVwNTVsPWj/TScTbiNVZ5+mmX8TcEXF0C8aSxUw0jTDpIw==
 
 typescript@^3.3.3333:
   version "3.3.3333"

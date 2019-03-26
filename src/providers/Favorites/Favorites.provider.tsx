@@ -1,6 +1,9 @@
+///<reference lib="dom" />
+
 import React, { createContext, useContext, useReducer, useEffect } from 'react';
 import { reducer, initialState } from './Favorites.reducer';
 import { ReducerType, Context, Props, ActionTypes } from './Favorites.types';
+import { Gif } from '../../@types/Gif';
 
 const FavoritesContext = createContext<Context | null>(null);
 
@@ -20,19 +23,24 @@ export const FavoritesProvider: React.FunctionComponent<Props> = ({ children }) 
   const value: Context = {
     favorites,
 
-    toggleFavorite: async (gif: any) => {
+    toggleFavorite: (gif: Gif) => {
+      /**
+       * STEP 3: Cache the images
+       */
       const { images } = gif;
+
       addToCache([
         images.fixed_width_downsampled.url,
         images.original.url
       ]);
+
       dispatch({
         type: ActionTypes.TOGGLE_FAVORITE,
         payload: gif
       });
     },
 
-    isFavorited: (gif: any) => {
+    isFavorited: (gif: Gif) => {
       return typeof state[gif.id] !== 'undefined';
     }
   };
@@ -45,6 +53,7 @@ export const FavoritesProvider: React.FunctionComponent<Props> = ({ children }) 
   useEffect(() => {
     window.localStorage.setItem('favorites', JSON.stringify(state));
   }, [favorites.length]);
+
 
   return (
     <FavoritesContext.Provider value={value}>

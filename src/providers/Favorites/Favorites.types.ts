@@ -1,4 +1,5 @@
 import { Reducer } from 'react';
+import { Gif } from '../../@types/Gif';
 
 export interface Favorites {
   id: string;
@@ -7,8 +8,8 @@ export interface Favorites {
 export type FavoritesRecord = Record<string, Favorites>;
 
 export interface Context {
-  toggleFavorite(id: string): void;
-  isFavorited(gif: any): boolean;
+  toggleFavorite(gif: Gif): void;
+  isFavorited(gif: Gif): boolean;
   favorites: Favorites[];
 }
 
