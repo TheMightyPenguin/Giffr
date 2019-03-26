@@ -14,14 +14,16 @@ const StyledGifContainer = styled.div`
   position: relative;
 `;
 
-const GifGallery = ({ gifs }) => (
-  <GifList>
-    {gifs.map(gif =>
-      <StyledGifContainer key={gif.id}>
-        <Gif gif={gif} />
-      </StyledGifContainer>
-    )}
-  </GifList>
-);
+const GifGallery = ({ gifs }) => {
+  return (
+    <GifList>
+      {gifs.map(gif =>
+        <StyledGifContainer key={gif.id}>
+          <Gif gif={gif} />
+        </StyledGifContainer>
+      )}
+    </GifList>
+  )
+};
 
 export default GifGallery;

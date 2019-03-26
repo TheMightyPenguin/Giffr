@@ -2,9 +2,8 @@ import React from 'react';
 import styled from 'styled-components';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { toggleFavorite } from '../actions/favorites';
-import { isFavorited } from '../selectors/favorites';
 import { selectedGifChange } from '../actions/selected';
+import { useFavoritesContext } from '../providers/Favorites/Favorites.provider';
 
 const FAVORITE_ICON = '⭐';
 
@@ -28,13 +27,21 @@ export const StyledFavoritedIcon = styled.a`
   }
 `;
 
-export const Gif = ({ big, gif, favorited, selectedGifChange, toggleFavorite }) => {
+export const Gif = ({ big, gif, selectedGifChange }) => {
   const src = !big
     ? gif.images.fixed_width_downsampled.url
     : gif.images.original.url;
+
+  const { isFavorited, toggleFavorite } = useFavoritesContext();
+
   return (
     <React.Fragment>
-      <StyledFavoritedIcon onClick={() => toggleFavorite(gif)} active={favorited}>
+      <StyledFavoritedIcon
+        onClick={() => {
+          toggleFavorite(gif);
+        }}
+        active={isFavorited(gif)}
+      >
         {FAVORITE_ICON}
       </StyledFavoritedIcon>
       <Link to={`?gifId=${gif.id}`}>
@@ -44,13 +51,8 @@ export const Gif = ({ big, gif, favorited, selectedGifChange, toggleFavorite }) 
   );
 };
 
-const mapStateToProps = (state, { gif }) => ({
-  favorited: isFavorited(gif.id, state)
-});
-
 const mapDispatchToProps = {
-  toggleFavorite,
   selectedGifChange
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Gif);
+export default connect(null, mapDispatchToProps)(Gif);

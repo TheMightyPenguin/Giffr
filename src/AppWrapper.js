@@ -3,11 +3,14 @@ import { Provider } from 'react-redux';
 import { ThemeProvider } from 'styled-components';
 import store from './store';
 import theme from './constants/themeConfig';
+import { FavoritesProvider } from './providers/Favorites/Favorites.provider';
 
 const AppWrapper = ({ children }) => (
   <Provider store={store}>
     <ThemeProvider theme={theme}>
-      {children}
+      <FavoritesProvider>
+        {children}
+      </FavoritesProvider>
     </ThemeProvider>
   </Provider>
 );

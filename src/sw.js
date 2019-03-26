@@ -8,6 +8,9 @@ workbox.routing.registerNavigationRoute("/index.html", {
 
 workbox.LOG_LEVEL = 'debug';
 
+/**
+ * STEP 3: Cache the images
+ */
 workbox.routing.registerRoute(
   new RegExp('https://.*giphy.com/.*\.gif'),
   // Custom Strategy
